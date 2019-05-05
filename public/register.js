@@ -12,25 +12,21 @@ var db = firebase.database();
 var btnlogin = document.getElementById("btn-login");
 var email = document.getElementById("login-username");
 var password = document.getElementById("login-password");
-var ref = db.ref("admin/");
 
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
 
 btnlogin.addEventListener("click",function()
 {
     event.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(username.value, password.value).catch(function(error)
-    {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-        // ...
-    });
+   
+
+      firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+      .then((authData) => {
+          console.log("User created successfully with payload-", authData);
+                  location.href ="alumno.html";
+
+          //Write code to use authData to add to Users
+      }).catch((_error) => {
+          console.log(" Se produjo un error", _error);
+      })
+    
 });
