@@ -1,0 +1,37 @@
+{
+  "Grupos" : {
+    "1529386187363" : {
+      "contra" : "1234",
+      "name" : "2CM1"
+    },
+    "1529386204316" : {
+      "Alumnos" : {
+        "T1VSJamydzSi17iD6sRNMWiJKPt1" : {
+          "Nombre" : "Avilés Gómez Jonathan",
+          "Tareas" : {
+            "TAREA 1" : {
+              "Calificacion" : "Sin calificar",
+              "Comentario" : "Sin Comentario",
+              "Nombre" : "TAREA 1"
+            },
+            "Tarea 2" : {
+              "Calificacion" : "7",
+              "Comentario" : "Sin Comentario",
+              "Nombre" : "Tarea 2"
+            }
+          }
+        }
+      },
+      "contra" : "1234",
+      "name" : "2CM2"
+    }
+  },
+  "admin" : {
+    "Z9S9brmjrsc5hspWrLKqI7dtvBD3" : {
+      "nombre" : "Javier"
+    },
+    "n88KVP5LtgRF7LyXr3T47qNTH6e2" : {
+      "nombre" : "Josefina"
+    }
+  }
+}

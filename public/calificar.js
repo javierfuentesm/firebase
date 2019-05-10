@@ -29,8 +29,6 @@
       if (user)
       {
           console.log("Tenemos usuario");
-          // console.log(user.uid);
-          var administrador;
           ref.once("value").then(function(snapshot)
           {
               if (snapshot.hasChild(user.uid))
@@ -106,9 +104,6 @@ refAlumno.on("child_added",function(snapshot){
     x.appendChild(y);
     tarea.appendChild(x);
     });
-
-
-
 }
 
 function selectcalificacion(){

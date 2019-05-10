@@ -30,8 +30,8 @@ firebase.auth().onAuthStateChanged(function (user)
             }
             else
             {
-                console.log("Eres alumno no profesor no puedes acceder aqui");
-                firebase.auth().signOut();
+                console.log("Eres alumno");
+                location.href ="alumno.html";
             }
         });
     }
