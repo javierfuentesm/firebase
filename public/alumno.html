@@ -35,10 +35,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <!-- <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+      
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Acerca de</a>
+            <a class="nav-link js-scroll-trigger" href="" id="logout">Cerrar sesión</a>
           </li>
+              <!-- 
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Información</a>
           </li>
@@ -46,7 +48,8 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
           </li>
-        </ul> -->
+          -->
+        </ul> 
       </div>
     </div>
   </nav>
@@ -72,20 +75,25 @@
 
   <!-- About Section -->
   <section class="page-section bg-primary" id="about">
-    <div class="container">
+    <div class="container" id="registrogrupo">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Registrate en un grupo</h2>
+          <h2 class="text-white mt-0">Termina tu registro</h2>
           <hr class="divider light my-4">
           <p class="text-white-50 mb-4">El presente material se realizó con la finalidad de ayudarte, espero sea de tu agrado y te sirva en el desarrollo de tus conocimientos teóricos y experimentales en Administración de Proyectos.</p>
           <form id="groupform">
+
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre completo</label>
+                  <input type="text" class="form-control" id="studentname"  placeholder="Ingresa del nombre del grupo" required>
+                </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Nombre del grupo</label>
-              <input type="text" class="form-control" id="groupname"  placeholder="Ingresa del nombre del grupo">
+              <input type="text" class="form-control" id="groupname"  placeholder="Ingresa del nombre del grupo" required>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="password" placeholder="Contraseña del grupo">
+              <input type="password" class="form-control" id="password" placeholder="Contraseña del grupo" required>
             </div>
             
             <button type="submit" class="btn btn-primary">Registrarme</button>
@@ -99,7 +107,7 @@
   <!-- Services Section -->
   <section class="page-section" id="services">
     <div class="container">
-      <h2 class="text-center mt-0">¿Qué puedes esperar?</h2>
+      <h2 class="text-center mt-0">Consulta de tareas</h2>
       <hr class="divider my-4">
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">

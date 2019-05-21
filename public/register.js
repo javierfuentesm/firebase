@@ -18,6 +18,7 @@ btnlogin.addEventListener("click",function()
 {
     event.preventDefault();
    
+    console.log(email.value);
 
       firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
       .then((authData) => {
