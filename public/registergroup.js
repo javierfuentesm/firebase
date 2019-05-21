@@ -20,7 +20,7 @@ var studentname = document.getElementById('studentname');
   var groupform = document.getElementById('groupform');
   var registrogrupo = document.getElementById('registrogrupo');
   var logout = document.getElementById('logout');
-
+  var subetarea = document.getElementById('subetarea');
 
   
 
@@ -42,7 +42,45 @@ firebase.auth().onAuthStateChanged(function (user)
             if(childchildsnapshot.child(firebase.auth().currentUser.uid).exists()){
                 console.log("Print adentro")
                 registrogrupo.style.display = "none";
-        
+
+                var reftarea =db2.ref('Grupos/'+childSnapshot.key+ "/Alumnos/"+firebase.auth().currentUser.uid+"/Tareas");
+
+                console.log(reftarea);
+
+                reftarea.once("value").then(function(tareassnapshot) {
+
+                  tareassnapshot.forEach(function(childtareassnapshot) {
+
+                   console.log( childtareassnapshot.child("Calificacion").val());
+                   console.log( childtareassnapshot.child("Comentario").val());
+                   console.log( childtareassnapshot.child("Nombre").val());
+
+                
+
+                   var h = document.createElement("H1");
+                   var t = document.createTextNode(childtareassnapshot.child("Nombre").val());
+                   var x = document.createElement("H2");
+                   var y = document.createTextNode("Calificacion :"+ childtareassnapshot.child("Calificacion").val());
+                   var br = document.createElement("br");
+
+                   var z = document.createTextNode("Comentario :" + childtareassnapshot.child("Comentario").val());
+
+                   x.appendChild(y);
+                   x.appendChild(br);
+                   x.appendChild(br);              
+                   x.appendChild(z);
+                   h.appendChild(t);
+                   
+                   
+                   subetarea.appendChild(document.body.appendChild(h));
+                   subetarea.appendChild(document.body.appendChild(x));
+                   
+                   
+
+
+                  });
+
+                });
         
             } 
            
