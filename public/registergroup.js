@@ -48,24 +48,27 @@ firebase.auth().onAuthStateChanged(function (user)
 
 
                 reftarea.on("value",function(tareassnapshot) {
+
+                          
+                 
                   
                   
                   subetarea=document.createElement("div");
                   subetarea.id="subetarea";
+                  subetarea.setAttribute("class","container");
                   about.appendChild(subetarea);
+                
 
 
-
-                  tareassnapshot.forEach(function(childtareassnapshot) {
-                    
+                  tareassnapshot.forEach(function(childtareassnapshot) {                    
 
                    
 
                    var h = document.createElement("H1");
                    var t = document.createTextNode(childtareassnapshot.child("Nombre").val());
                    var x = document.createElement("H4");
-                   var k = document.createElement("H4");
                    var l = document.createElement("H4");
+                   var k = document.createElement("H4");
 
 
                    var y = document.createTextNode("Calificacion :"+ childtareassnapshot.child("Calificacion").val());
@@ -73,39 +76,70 @@ firebase.auth().onAuthStateChanged(function (user)
 
                    if(childtareassnapshot.child("Archivo").val()==null){
                     var j = document.createTextNode("Archivo :" + "Aún no has subido tu tarea");
+
+                    var br = document.createElement("br"); 
+
+                    var fileButton =document.createElement('input');
+                    fileButton.type="file";
+ 
+ 
+                    x.appendChild(y);
+                    x.appendChild(br);
+ 
+                    l.appendChild(z);
+                    l.appendChild(br)
+ 
+                    h.appendChild(t);
+                    h.appendChild(br)
+ 
+                    k.appendChild(j);
+                    k.appendChild(br)
+ 
+                    
+                    
+                    subetarea.appendChild(document.body.appendChild(h));
+                    subetarea.appendChild(document.body.appendChild(x));
+                    subetarea.appendChild(document.body.appendChild(l));                   
+                    subetarea.appendChild(document.body.appendChild(k));                 
+ 
+                    subetarea.appendChild(fileButton);
+
                    }else{
-                    var j = document.createTextNode("Archivo :" + childtareassnapshot.child("Archivo").val())
+                   // var j = document.createTextNode("Archivo :" + childtareassnapshot.child("Archivo").val());
+
+                   var linkElement = document.createElement('a');
+                    linkElement.href = childtareassnapshot.child("Archivo").val();
+
+                    var j = document.createElement("img");
+                    j.setAttribute("src", "img/folder.png");
+                    linkElement.appendChild(j);
+                   
+                    var br = document.createElement("br"); 
+
+                    var fileButton =document.createElement('input');
+                    fileButton.type="file";
+ 
+ 
+                    x.appendChild(y);
+                    x.appendChild(br);
+ 
+                    l.appendChild(z);
+                    l.appendChild(br)
+ 
+                    h.appendChild(t);
+                    h.appendChild(br)
+ 
+                  
+                    
+                    subetarea.appendChild(document.body.appendChild(h));
+                    subetarea.appendChild(document.body.appendChild(x));
+                    subetarea.appendChild(document.body.appendChild(l));                   
+                    subetarea.appendChild(linkElement);            
+ 
+                    subetarea.appendChild(fileButton);
 
                    }
-                   var br = document.createElement("br"); 
-
-                   var fileButton =document.createElement('input');
-                   fileButton.type="file";
-
-
-                   x.appendChild(y);
-                   x.appendChild(br);
-
-                   l.appendChild(z);
-                   l.appendChild(br)
-
-                   
-                   k.appendChild(j);
-                   k.appendChild(br);
-
-                   h.appendChild(t);
-                   h.appendChild(br)
-
-                   
-                   
-                   subetarea.appendChild(document.body.appendChild(h));
-                   subetarea.appendChild(document.body.appendChild(x));
-                   subetarea.appendChild(document.body.appendChild(k));
-                   subetarea.appendChild(document.body.appendChild(l));
-
-
-
-                   subetarea.appendChild(fileButton);
+                  
                
 
 
@@ -127,7 +161,7 @@ firebase.auth().onAuthStateChanged(function (user)
                               Archivo:downloadURL                      
                             });
                                                     
-                            document.getElementById("subetarea").nextElementSibling.remove();
+                            document.getElementById("subetarea").remove();
                                                  
                           });
                             
