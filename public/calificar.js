@@ -23,6 +23,9 @@
   var calificacion = document.getElementById('calificacion');
   var comentario = document.getElementById('comentario');
   var logout = document.getElementById('logout');
+  var archivo = document.getElementById('archivo');
+  var archivo1;
+
 
   firebase.auth().onAuthStateChanged(function (user)
   {
@@ -103,6 +106,8 @@ refAlumno.on("child_added",function(snapshot){
     var y = document.createTextNode(snapshot.val().Nombre);
     x.appendChild(y);
     tarea.appendChild(x);
+
+
     });
 }
 
@@ -111,9 +116,26 @@ function selectcalificacion(){
 
       var refCalificacion= db2.ref('Grupos/'+grupo.value+"/Alumnos/"+alumno.value+"/Tareas/"+tarea.value);
       refCalificacion.once("value").then(function(snapshot) {
-            comentario.value=snapshot.val().Comentario;
-            calificacion.value=snapshot.val().Calificacion;
-          //  var changedPost = snapshot.child("Calificacion").val(); Este metodo tambien funciona
+
+              archivo.innerHTML = ""; 
+              archivo1=document.createElement("div");
+              archivo1.id="archivo1";
+              archivo.appendChild(archivo1);
+
+              comentario.value=snapshot.val().Comentario;
+              calificacion.value=snapshot.val().Calificacion;
+              //  var changedPost = snapshot.child("Calificacion").val(); Este metodo tambien funciona
+              var linkElement = document.createElement('a');
+              linkElement.href = snapshot.child("Archivo").val();
+              var j = document.createElement("img");
+              j.setAttribute("src", "img/folder.png");
+              linkElement.appendChild(j);
+              archivo1.appendChild(linkElement);
+
+
+
+            
+
         });
 
 

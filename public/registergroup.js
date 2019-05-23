@@ -47,11 +47,8 @@ firebase.auth().onAuthStateChanged(function (user)
                 var reftarea =db2.ref('Grupos/'+childSnapshot.key+ "/Alumnos/"+firebase.auth().currentUser.uid+"/Tareas");
 
 
-                reftarea.on("value",function(tareassnapshot) {
-
-                          
-                 
-                  
+                reftarea.on("value",function(tareassnapshot) {                      
+                                  
                   
                   subetarea=document.createElement("div");
                   subetarea.id="subetarea";
@@ -109,7 +106,6 @@ firebase.auth().onAuthStateChanged(function (user)
 
                    var linkElement = document.createElement('a');
                     linkElement.href = childtareassnapshot.child("Archivo").val();
-
                     var j = document.createElement("img");
                     j.setAttribute("src", "img/folder.png");
                     linkElement.appendChild(j);
@@ -160,7 +156,7 @@ firebase.auth().onAuthStateChanged(function (user)
                               reftarea2.update({
                               Archivo:downloadURL                      
                             });
-                                                    
+                            alert("Se subio exitosamente tu tarea");                 
                             document.getElementById("subetarea").remove();
                                                  
                           });
