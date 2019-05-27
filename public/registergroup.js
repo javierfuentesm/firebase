@@ -33,6 +33,15 @@ firebase.auth().onAuthStateChanged(function (user)
       if (user)
       {
           console.log("Tenemos usuario");
+
+
+
+          
+        var user=firebase.auth().currentUser;
+           
+        var email_verified=user.emailVerified;
+        if(email_verified){
+
           var refgrupo =db2.ref('Grupos/');
          
           refgrupo.once("value").then(function(snapshot) {
@@ -172,6 +181,17 @@ firebase.auth().onAuthStateChanged(function (user)
               });
             });
           });    
+                        
+           }
+        else{
+        
+            alert("Aun no has verificado tu correo");
+            location.href ="login.html";
+
+        }         
+        
+    
+        
         }
         else
         {

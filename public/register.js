@@ -23,7 +23,14 @@ btnlogin.addEventListener("click",function()
       firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
       .then((authData) => {
           console.log("User created successfully with payload-", authData);
-                  location.href ="alumno.html";
+          var user=firebase.auth().currentUser;
+          user.sendEmailVerification().then(function(){
+             alert("La verificacion fue enviada a tu correo,verifica antes de inciar sesion")
+             location.href ="index.html";
+
+          }).catch(function(error){
+              window.alert("Error: "+error.message)
+          });
 
           //Write code to use authData to add to Users
       }).catch((_error) => {

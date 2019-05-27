@@ -21,19 +21,34 @@ firebase.auth().onAuthStateChanged(function (user)
         console.log("Tenemos usuario");
         // console.log(user.uid);
         var administrador;
-        ref.once("value").then(function(snapshot)
-        {
-            if (snapshot.hasChild(user.uid))
-            {
-                console.log("Bienvenido eres administrador");
-                location.href ="grupos.html";
-            }
-            else
-            {
-                console.log("Eres alumno");
-                location.href ="alumno.html";
-            }
-        });
+
+        var user=firebase.auth().currentUser;
+           
+                var email_id=user.email;
+                var email_verified=user.emailVerified;
+                if(email_verified){
+                    ref.once("value").then(function(snapshot)
+                    {
+                        if (snapshot.hasChild(user.uid))
+                        {
+                            console.log("Bienvenido eres administrador");
+                            location.href ="grupos.html";
+                        }
+                        else
+                        {
+                            console.log("Eres alumno");
+                            location.href ="alumno.html";
+                        }
+                    });                }
+                else{
+                
+                    alert("Aun no has verificado tu correo");
+                    location.href ="index.html";
+
+                }         
+                
+            
+        
     }
     else
     {
