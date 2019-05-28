@@ -87,6 +87,8 @@ firebase.auth().onAuthStateChanged(function (user)
 
                     var fileButton =document.createElement('input');
                     fileButton.type="file";
+                    fileButton.setAttribute("accept", "image/jpeg, image/png, .doc, .docx,.pdf");
+
  
  
                     x.appendChild(y);
@@ -123,6 +125,8 @@ firebase.auth().onAuthStateChanged(function (user)
 
                     var fileButton =document.createElement('input');
                     fileButton.type="file";
+                    fileButton.setAttribute("accept", "image/jpeg, image/png, .doc, .docx,.pdf");
+
  
  
                     x.appendChild(y);

@@ -24,22 +24,23 @@ firebase.auth().onAuthStateChanged(function (user)
 
         var user=firebase.auth().currentUser;
            
-                var email_id=user.email;
                 var email_verified=user.emailVerified;
                 if(email_verified){
                     ref.once("value").then(function(snapshot)
                     {
                         if (snapshot.hasChild(user.uid))
                         {
-                            console.log("Bienvenido eres administrador");
+                            console.log("Bienvenido eres profesor");
                             location.href ="grupos.html";
                         }
+                        
                         else
                         {
                             console.log("Eres alumno");
                             location.href ="alumno.html";
                         }
-                    });                }
+                    });             
+                   }
                 else{
                 
                     alert("Aun no has verificado tu correo");
