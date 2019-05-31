@@ -19,7 +19,18 @@ var password = document.getElementById("password");
 var ref = db.ref("administrador/");
 
 
-firebase.auth().onAuthStateChanged(function (user)
+
+
+
+  
+btnlogin.addEventListener("click",function()
+{
+    event.preventDefault();
+
+    console.log(nombre.value);
+    console.log(email.value);
+    console.log(password.value);
+    firebase.auth().onAuthStateChanged(function (user)
 {
     if (user)
     {
@@ -46,6 +57,7 @@ firebase.auth().onAuthStateChanged(function (user)
                 else{
                 
                     alert("Aun no has verificado tu correo");
+
                     location.href ="login.html";
 
                 }         
@@ -65,17 +77,6 @@ logout.addEventListener("click",function(){
 
   });
 
-
-  
-btnlogin.addEventListener("click",function()
-{
-    event.preventDefault();
-
-    console.log(nombre.value);
-    console.log(email.value);
-    console.log(password.value);
-
-
       firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
       .then((authData) => {
           console.log("User created successfully with payload-", authData);
@@ -89,6 +90,8 @@ btnlogin.addEventListener("click",function()
                 Nombre:nombre.value                      
         
               });
+
+              
          
 
              //location.href ="index.html";
