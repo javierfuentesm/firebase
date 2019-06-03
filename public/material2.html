@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grupos</title>
+    <title>Materiales</title>
 
        <!-- Font Awesome Icons -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,49 +34,43 @@
            <a class="btn btn-primary" id="logout" href="" role="button">Cerrar Sesion</a>
     </div>
   </nav>
-
-
-  <header class="masthead">
+<header class="masthead">
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Grupos</h1>
+          <h1 class="text-uppercase text-white font-weight-bold">Material</h1>
          <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="calificar.html" rola="button">Calificacion</a>
-          <br><br><br>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="tareas.html" role="button">Tareas</a>
-          <br><br><br>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="material2.html" role="button">Material</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="calificar.html" rola="button">Calificacion</a>
+            <br><br><br>
 
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="grupos.html" rola="button">Grupos</a>
+                <br><br><br>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="tareas.html" role="button">Tareas</a>
+                <br><br><br>
+              <br><br><br>
+      
         </div>
       </div>
     </div>
   </header>
- <section class="page-section bg-primary" id="about">
+<section class="page-section bg-primary" id="about">
     <div class="container">
       <div class="row justify-content-center">
-        <p class="text-white-50 mb-4">Elimina/Modifica Grupos
-    <ul id='grupos'></ul></p>
-    <br><br><hr>
-<form id="groupForm" class='topBefore'>
-  <input type="hidden" id='hiddenId'>
-
-  <p class="text-white-50 mb-4">Nombre del Grupo
-  <br>
-  <input type="text" id="groupname">
-  <br></p>
-  <p class="text-white-50 mb-4">Contraseña de Grupo
-  <br>
-  <input type="text" id="password">
-  <br>
-  <button type='submit'> Enviar</button></p>
-</form>
+        <div>
+          
+          Ingresa el nombre del material
+          <input type="text" id="name">
 <br><br>
-  
-  </div></div>
-  </section>
+Selecciona el archivo
+<input type="file" accept="image/jpeg, image/png, .doc, .docx,.pdf" name="upload" id="fileButton"/>
+
+
+</div>
+      </div>
+    </div>
+  </section></p></form>
 
 </div>
 </body>
@@ -85,7 +79,15 @@
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-messaging.js"></script>
-<script src="script.js">
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
+
+<script src="material.js">
 
 </script>
+
+
+
+<link hreffonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+
 </html>

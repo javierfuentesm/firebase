@@ -43,19 +43,7 @@ firebase.auth().onAuthStateChanged(function (user)
         var email_verified=user.emailVerified;
         if(email_verified){
 
-
-          ref.once("value").then(function(snapshot)
-          {
-              if (snapshot.hasChild(user.uid))
-              {
-                  console.log("Bienvenido eres administrador");
-              }
-              else
-              {
-                alert("Eres alumno no profesor no puedes acceder aqui");
-                firebase.auth().signOut();
-              }
-          });               
+      
          
 
           var refmaterial =db2.ref('Archivos/');
@@ -149,35 +137,7 @@ firebase.auth().onAuthStateChanged(function (user)
         
           
       
-      fileButton.addEventListener('change', function(e){
-        var storage=firebase.storage();
-        var file=e.target.files[0];     
-        var storageRef=storage.ref('carpeta/'+file.name);
-        var uploadTask=storageRef.put(file);
-           
-            uploadTask.on('state_changed', function(snapshot){
-            },function(error){
-            },function(){
-                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-                  var name = document.getElementById('name');
-
-                  var refarchivo =db2.ref('Archivos/'+name.value);
-                 console.log(refarchivo);
-                 console.log(name.value);
-                 refarchivo.set({
-                  nombre:name.value,
-                  ruta:downloadURL
-                });
-                alert("Se subio exitosamente tu tarea");                 
-                document.getElementById("subetarea").remove();
-                                     
-              });
-                
-            });
-               
-          });
-                
-          
+    
         
       
 
